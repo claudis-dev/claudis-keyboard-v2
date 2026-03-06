@@ -13,11 +13,14 @@ object ClaudisAI {
     private val handler = Handler(Looper.getMainLooper())
     private var lastText = ""
 
-    fun getSuggestions(text: String, callback: (List<String>) -> Unit) {
+    fun getSuggestions(context: android.content.Context, text: String, callback: (List<String>) -> Unit) {
         if (text == lastText || text.length < 3) return
         lastText = text
 
         Thread {
+            android.os.Handler(android.os.Looper.getMainLooper()).post {
+                android.widget.Toast.makeText(context, "Claude chamado: " + text.takeLast(10), android.widget.Toast.LENGTH_SHORT).show()
+            }
             try {
                 val url = URL("https://api.anthropic.com/v1/messages")
                 val conn = url.openConnection() as HttpURLConnection
