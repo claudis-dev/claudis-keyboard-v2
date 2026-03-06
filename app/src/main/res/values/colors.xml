@@ -74,3 +74,4 @@
     <!-- Scrollbar color -->
     <color name="toolbar_scrollbar">#66808080</color>
 </resources>
+    <color name="claudis_bg">#6B4EFF</color>
