@@ -55,6 +55,7 @@ import helium314.keyboard.keyboard.KeyboardLayoutSet;
 import helium314.keyboard.keyboard.KeyboardSwitcher;
 import helium314.keyboard.keyboard.MainKeyboardView;
 import helium314.keyboard.latin.SuggestedWords.SuggestedWordInfo;
+import helium314.keyboard.latin.ClaudisAI;
 import helium314.keyboard.latin.common.ColorType;
 import helium314.keyboard.latin.common.Constants;
 import helium314.keyboard.latin.common.CoordinateUtils;
@@ -1489,6 +1490,26 @@ public class LatinIME extends InputMethodService implements
 
     @Override
     public void setSuggestions(final SuggestedWords suggestedWords) {
+        // Claudis IA - busca sugestoes inteligentes
+        try {
+            final android.view.inputmethod.InputConnection ic = getCurrentInputConnection();
+            if (ic != null) {
+                final CharSequence txt = ic.getTextBeforeCursor(50, 0);
+                if (txt != null && txt.length() >= 3) {
+                    ClaudisAI.INSTANCE.getSuggestions(txt.toString(), words -> {
+                        if (!words.isEmpty()) {
+                            final java.util.ArrayList<SuggestedWords.SuggestedWordInfo> list = new java.util.ArrayList<>();
+                            for (String w : words) {
+                                list.add(new SuggestedWords.SuggestedWordInfo(w, "", 100, SuggestedWords.SuggestedWordInfo.KIND_TYPED, null, 0, 0));
+                            }
+                            final SuggestedWords claudisWords = new SuggestedWords(list, null, null, false, false, false, SuggestedWords.INPUT_STYLE_TYPING, SuggestedWords.NOT_A_SEQUENCE_NUMBER);
+                            setSuggestedWords(claudisWords);
+                        }
+                        return null;
+                    });
+                }
+            }
+        } catch (Exception e) { /* silencioso */ }
         if (suggestedWords.isEmpty()) {
             // avoids showing clipboard suggestion when starting gesture typing
             // should be fine, as there will be another suggestion in a few ms
