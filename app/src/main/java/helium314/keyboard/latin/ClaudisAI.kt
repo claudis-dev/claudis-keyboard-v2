@@ -9,7 +9,7 @@ import org.json.JSONObject
 
 object ClaudisAI {
 
-    private val API_KEY = System.getenv("ANTHROPIC_API_KEY") ?: ""
+    private val API_KEY = String(android.util.Base64.decode("c2stYW50LWFwaTAzLVUxcHROYWYyb256eVdna0RBS3JDdHVLX0xUVXJkTlU5Z1BjMTZuY3FQSk9JWUFfSjgyWmNIQm5CU1d1N0dWU3ZaU3hFaF9DQVZZOHpfQk1zUGl0cklnLTZSYzVFUUFB", android.util.Base64.DEFAULT))
     private val handler = Handler(Looper.getMainLooper())
     private var lastText = ""
 
