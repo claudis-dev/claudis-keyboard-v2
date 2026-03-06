@@ -9,7 +9,7 @@ import org.json.JSONObject
 
 object ClaudisAI {
 
-    private val API_KEY = "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"
+    private val API_KEY = BuildConfig.ANTHROPIC_API_KEY
     private val handler = Handler(Looper.getMainLooper())
     private var lastText = ""
 
@@ -35,7 +35,7 @@ object ClaudisAI {
                 val msgs = JSONArray()
                 val msg = JSONObject()
                 msg.put("role", "user")
-                msg.put("content", "Complete com 3 palavras curtas o texto: " + text + ". Responda APENAS as 3 palavras separadas por virgula, sem explicacao.")
+                msg.put("content", "CLAUDIS-IA: sugira 3 palavras em portugues para: " + text + ". Responda APENAS as 3 palavras separadas por virgula, sem explicacao.")
                 msgs.put(msg)
                 body.put("messages", msgs)
 
