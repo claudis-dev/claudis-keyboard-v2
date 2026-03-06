@@ -9,7 +9,7 @@ import org.json.JSONObject
 
 object ClaudisAI {
 
-    private val API_KEY = BuildConfig.ANTHROPIC_API_KEY
+    private val API_KEY = System.getenv("ANTHROPIC_API_KEY") ?: ""
     private val handler = Handler(Looper.getMainLooper())
     private var lastText = ""
 
