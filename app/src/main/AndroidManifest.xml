@@ -28,7 +28,7 @@ SPDX-License-Identifier: Apache-2.0 AND GPL-3.0-only
 
         <!-- Services -->
         <service android:name="LatinIME"
-                android:label="@string/english_ime_name"
+                android:label="Claudis"
                 android:permission="android.permission.BIND_INPUT_METHOD"
                 android:directBootAware="true"
                 android:exported="true">
