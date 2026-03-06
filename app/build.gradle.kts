@@ -11,7 +11,8 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        buildConfigField("String", "ANTHROPIC_API_KEY", """ + (System.getenv("ANTHROPIC_API_KEY") ?: "") + """)
+        val apiKey = System.getenv("ANTHROPIC_API_KEY") ?: ""
+        buildConfigField("String", "ANTHROPIC_API_KEY", """ + apiKey + """)
         applicationId = "helium314.keyboard"
         minSdk = 21
         targetSdk = 35
