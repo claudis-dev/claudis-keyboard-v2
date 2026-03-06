@@ -535,7 +535,7 @@ class TextKeyData(
 
 }
 
-// AutoTextKeyData is just for converting case with shift, which HeliBoard always does anyway
+// AutoTextKeyData is just for converting case with shift, which Claudis always does anyway
 // (maybe change later if there is a use case)
 @Serializable
 @SerialName("auto_text_key")

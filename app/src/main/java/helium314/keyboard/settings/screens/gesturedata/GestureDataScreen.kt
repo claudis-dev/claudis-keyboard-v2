@@ -262,7 +262,7 @@ fun GestureDataScreen(
         @Composable fun ColumnScope.texts() {
             val imm = ctx.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
             val text = when {
-                !UncachedInputMethodManagerUtils.isThisImeCurrent(ctx, imm) -> "please switch to HeliBoard"
+                !UncachedInputMethodManagerUtils.isThisImeCurrent(ctx, imm) -> "please switch to Claudis"
                 else -> stringResource(R.string.gesture_data_please_type)
             }
             if (useWideLayout) {

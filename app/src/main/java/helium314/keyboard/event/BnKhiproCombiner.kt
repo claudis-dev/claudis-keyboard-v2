@@ -15,7 +15,7 @@ import java.util.ArrayList
  *
  * Mappings: assets/khipro-mappings.json
  * Source: https://github.com/KhiproKeyboard/Khipro-Mappings
- * Note: Downloaded `khipro-mappings-heliboard.json` from source and renamed to `khipro-mappings.json`.
+ * Note: Downloaded `khipro-mappings-claudis.json` from source and renamed to `khipro-mappings.json`.
  */
 class BnKhiproCombiner : Combiner {
 

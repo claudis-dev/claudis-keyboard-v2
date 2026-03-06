@@ -80,7 +80,7 @@ fun getExportedActiveDeletionCount(context: Context) = context.prefs().getInt(PR
     val promotionShowNext = ctx.prefs().getLong(PREF_SHOW_PROMOTION_DIALOG_NEXT, 0)
     val reminderShowNext = ctx.prefs().getLong(PREF_SHOW_REMINDER_DIALOG_NEXT, 0)
     val neverShow = promotionShowNext == Long.MAX_VALUE || reminderShowNext == Long.MAX_VALUE // user selected "don't show again"
-        // we only show the dialog if the use actively loaded the gesture typing library (as opposed to having the lib in the system and HeliBoard as a system app)
+        // we only show the dialog if the use actively loaded the gesture typing library (as opposed to having the lib in the system and Claudis as a system app)
         || ctx.protectedPrefs().getString(Settings.PREF_LIBRARY_CHECKSUM, "").isNullOrEmpty()
     var shouldShowReminder by remember { mutableStateOf(
         !neverShow && reminderShowNext < System.currentTimeMillis() && reminderShowNext > 0L

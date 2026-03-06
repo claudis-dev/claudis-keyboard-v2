@@ -559,7 +559,7 @@ public class LatinIME extends InputMethodService implements
 
         final IntentFilter newDictFilter = new IntentFilter();
         newDictFilter.addAction(DictionaryPackConstants.NEW_DICTIONARY_INTENT_ACTION);
-        // RECEIVER_EXPORTED is necessary because apparently Android 15 (and others?) don't recognize if the sender and receiver are the same app, see https://github.com/Helium314/HeliBoard/pull/1756
+        // RECEIVER_EXPORTED is necessary because apparently Android 15 (and others?) don't recognize if the sender and receiver are the same app, see https://github.com/Helium314/Claudis/pull/1756
         ContextCompat.registerReceiver(this, mDictionaryPackInstallReceiver, newDictFilter, ContextCompat.RECEIVER_EXPORTED);
 
         final IntentFilter dictDumpFilter = new IntentFilter();
@@ -1179,7 +1179,7 @@ public class LatinIME extends InputMethodService implements
             // If there is a hardware keyboard and a visible software keyboard view has been hidden,
             // no visual element will be shown on the screen.
             // for some reason setting contentTopInsets and visibleTopInsets broke somewhere along the
-            // way from OpenBoard to HeliBoard (GH-702, GH-1455), but not setting anything seems to work
+            // way from OpenBoard to Claudis (GH-702, GH-1455), but not setting anything seems to work
             mInsetsUpdater.setInsets(outInsets);
             return;
         }

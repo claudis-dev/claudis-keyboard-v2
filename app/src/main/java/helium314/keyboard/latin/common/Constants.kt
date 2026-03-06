@@ -7,7 +7,7 @@ object Links {
     const val DICTIONARY_NORMAL_SUFFIX = "dictionaries/"
     const val DICTIONARY_EXPERIMENTAL_SUFFIX = "dictionaries_experimental/"
     const val DICTIONARY_EMOJI_CLDR_SUFFIX = "emoji_cldr_signal_dictionaries/"
-    const val GITHUB = "https://github.com/Helium314/HeliBoard"
+    const val GITHUB = "https://github.com/Helium314/Claudis"
     const val LICENSE = "$GITHUB/blob/main/LICENSE"
     const val LAYOUT_WIKI_URL = "$GITHUB/wiki/2.-Layouts"
     const val WIKI_URL = "$GITHUB/wiki"
