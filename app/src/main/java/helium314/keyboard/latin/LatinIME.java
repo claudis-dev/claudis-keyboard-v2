@@ -1504,7 +1504,7 @@ public class LatinIME extends InputMethodService implements
                                 list.add(new SuggestedWords.SuggestedWordInfo(w, "", 100, SuggestedWords.SuggestedWordInfo.KIND_TYPED, null, 0, 0));
                             }
                             final SuggestedWords claudisWords = new SuggestedWords(list, null, null, false, false, false, SuggestedWords.INPUT_STYLE_TYPING, SuggestedWords.NOT_A_SEQUENCE_NUMBER);
-                            setSuggestedWords(claudisWords);
+                            mSuggestionStripView.setSuggestions(claudisWords, false);
                         }
                         return null;
                     });
