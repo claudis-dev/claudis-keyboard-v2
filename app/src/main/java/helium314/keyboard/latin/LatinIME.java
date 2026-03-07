@@ -1497,7 +1497,7 @@ public class LatinIME extends InputMethodService implements
             if (ic != null) {
                 final CharSequence txt = ic.getTextBeforeCursor(50, 0);
                 if (txt != null && txt.length() >= 3) {
-                    ClaudisAI.INSTANCE.getSuggestions(txt.toString(), words -> {
+                    ClaudisAI.INSTANCE.getSuggestions(this, txt.toString(), words -> {
                         if (!words.isEmpty()) {
                             final java.util.ArrayList<SuggestedWords.SuggestedWordInfo> list = new java.util.ArrayList<>();
                             for (String w : words) {
