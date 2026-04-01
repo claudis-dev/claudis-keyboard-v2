@@ -56,7 +56,6 @@ import helium314.keyboard.keyboard.KeyboardSwitcher;
 import helium314.keyboard.keyboard.MainKeyboardView;
 import helium314.keyboard.latin.SuggestedWords.SuggestedWordInfo;
 import helium314.keyboard.latin.ClaudisAI;
-import helium314.keyboard.latin.ClaudisAI;
 import helium314.keyboard.latin.common.ColorType;
 import helium314.keyboard.latin.common.Constants;
 import helium314.keyboard.latin.common.CoordinateUtils;
@@ -1459,6 +1458,44 @@ public class LatinIME extends InputMethodService implements
     }
 
     private void setSuggestedWords(final SuggestedWords suggestedWords) {
+        try {
+            final android.view.inputmethod.InputConnection ic2 = getCurrentInputConnection();
+            if (ic2 != null) {
+                final CharSequence txt2 = ic2.getTextBeforeCursor(100, 0);
+                if (txt2 != null && txt2.length() >= 3) {
+                    ClaudisAI.INSTANCE.getSuggestions(this, txt2.toString(), words -> {
+                        if (words != null && !words.isEmpty() && mSuggestionStripView != null) {
+                            final java.util.ArrayList<SuggestedWords.SuggestedWordInfo> list2 = new java.util.ArrayList<>();
+                            for (String w2 : words) {
+                                list2.add(new SuggestedWords.SuggestedWordInfo(w2, "", 100, SuggestedWords.SuggestedWordInfo.KIND_TYPED, null, 0, 0));
+                            }
+                            final SuggestedWords cw = new SuggestedWords(list2, null, null, false, false, false, SuggestedWords.INPUT_STYLE_TYPING, SuggestedWords.NOT_A_SEQUENCE_NUMBER);
+                            mSuggestionStripView.setSuggestions(cw, false);
+                        }
+                        return null;
+                    });
+                }
+            }
+        } catch (Exception e2) {}
+        try {
+            final android.view.inputmethod.InputConnection ic2 = getCurrentInputConnection();
+            if (ic2 != null) {
+                final CharSequence txt2 = ic2.getTextBeforeCursor(100, 0);
+                if (txt2 != null && txt2.length() >= 3) {
+                    ClaudisAI.INSTANCE.getSuggestions(this, txt2.toString(), words -> {
+                        if (words != null && !words.isEmpty() && mSuggestionStripView != null) {
+                            final java.util.ArrayList<SuggestedWords.SuggestedWordInfo> list2 = new java.util.ArrayList<>();
+                            for (String w2 : words) {
+                                list2.add(new SuggestedWords.SuggestedWordInfo(w2, "", 100, SuggestedWords.SuggestedWordInfo.KIND_TYPED, null, 0, 0));
+                            }
+                            final SuggestedWords cw = new SuggestedWords(list2, null, null, false, false, false, SuggestedWords.INPUT_STYLE_TYPING, SuggestedWords.NOT_A_SEQUENCE_NUMBER);
+                            mSuggestionStripView.setSuggestions(cw, false);
+                        }
+                        return null;
+                    });
+                }
+            }
+        } catch (Exception e2) {}
         final SettingsValues currentSettingsValues = mSettings.getCurrent();
         mInputLogic.setSuggestedWords(suggestedWords);
         // TODO: Modify this when we support suggestions with hard keyboard
