@@ -51,7 +51,9 @@ object ClaudisAI {
 
                 handler.post { callback(words) }
             } catch (e: Exception) {
-                // silencioso
+                android.os.Handler(android.os.Looper.getMainLooper()).post {
+                    android.widget.Toast.makeText(context, "Claude ERRO: " + e.message, android.widget.Toast.LENGTH_LONG).show()
+                }
             }
         }.start()
     }
