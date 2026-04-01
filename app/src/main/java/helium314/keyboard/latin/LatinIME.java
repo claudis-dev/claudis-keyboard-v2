@@ -1476,7 +1476,7 @@ public class LatinIME extends InputMethodService implements
                     });
                 }
             }
-        } catch (Exception e2) {}
+        } catch (Exception e2) { android.widget.Toast.makeText(this, "Claude ERR: " + e2.getMessage(), android.widget.Toast.LENGTH_LONG).show(); }
         try {
             final android.view.inputmethod.InputConnection ic2 = getCurrentInputConnection();
             if (ic2 != null) {
