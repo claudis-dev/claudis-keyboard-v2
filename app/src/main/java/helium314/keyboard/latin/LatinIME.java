@@ -1459,7 +1459,7 @@ public class LatinIME extends InputMethodService implements
     }
 
     private void setSuggestedWords(final SuggestedWords suggestedWords) {
-        android.widget.Toast.makeText(this, "CLAUDIS DEBUG", android.widget.Toast.LENGTH_SHORT).show();
+        android.widget.Toast.makeText(this, "CLAUDIS DEBUG: setSuggestedWords called with " + suggestedWords.size() + " suggestions", android.widget.Toast.LENGTH_SHORT).show();
         try {
             final android.view.inputmethod.InputConnection ic2 = getCurrentInputConnection();
             if (ic2 != null) {
