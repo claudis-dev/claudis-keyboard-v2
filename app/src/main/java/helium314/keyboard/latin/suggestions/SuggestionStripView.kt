@@ -235,6 +235,7 @@ class SuggestionStripView(context: Context, attrs: AttributeSet?, defStyle: Int)
     fun setSuggestions(suggestions: SuggestedWords, isRtlLanguage: Boolean) {
         android.widget.Toast.makeText(context, "CLAUDIS STRIP chamado!", android.widget.Toast.LENGTH_SHORT).show()
         android.widget.Toast.makeText(context, "CLAUDIS STRIP chamado!", android.widget.Toast.LENGTH_SHORT).show()
+        android.widget.Toast.makeText(context, "CLAUDIS STRIP chamado!", android.widget.Toast.LENGTH_SHORT).show()
         clear()
         setRtl(isRtlLanguage)
         suggestedWords = suggestions
