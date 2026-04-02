@@ -755,6 +755,7 @@ public class LatinIME extends InputMethodService implements
     }
 
     public void updateSuggestionStripView(View view) {
+        android.widget.Toast.makeText(this, "CLAUDIS DEBUG2", android.widget.Toast.LENGTH_SHORT).show();
         mSuggestionStripView = mSettings.getCurrent().mToolbarMode == ToolbarMode.HIDDEN || isEmojiSearch()?
                         null : view.findViewById(R.id.suggestion_strip_view);
         if (hasSuggestionStripView()) {
