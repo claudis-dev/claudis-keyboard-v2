@@ -28,7 +28,7 @@ init(autoreset=True)
 
 # ─── Configurações ────────────────────────────────────────────────
 CLAUDE_API_URL  = "https://api.anthropic.com/v1/messages"
-CLAUDE_MODEL    = "claude-sonnet-4-20250514"
+CLAUDE_MODEL    = "claude-3-sonnet-20240229"
 MAX_ITERATIONS  = 30
 COMMAND_TIMEOUT = 60
 LOG_FILE        = os.path.expanduser("~/claudis_agent.log")
