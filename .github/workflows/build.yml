@@ -12,8 +12,8 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - name: Build APK
-        run: ./gradlew assembleRelease
+        run: ./gradlew assembleDebug
       - uses: actions/upload-artifact@v4
         with:
-          name: claudis-v2-release
-          path: app/build/outputs/apk/release/*.apk
+          name: claudis-v2-debug
+          path: app/build/outputs/apk/**/*.apk
