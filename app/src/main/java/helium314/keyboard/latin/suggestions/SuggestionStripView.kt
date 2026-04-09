@@ -233,7 +233,7 @@ class SuggestionStripView(context: Context, attrs: AttributeSet?, defStyle: Int)
     }
 
     fun setSuggestions(suggestions: SuggestedWords, isRtlLanguage: Boolean) {
-        android.util.Log.e("CLAUDIS", "setSuggestions chamado com " + suggestions.size() + " sugestoes")
+        android.util.Log.e("CLAUDIS", "setSuggestions chamado com ${suggestions.size} sugestoes")
         clear()
         setRtl(isRtlLanguage)
         suggestedWords = suggestions
