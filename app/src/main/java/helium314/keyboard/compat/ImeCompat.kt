@@ -35,7 +35,4 @@ object ImeCompat {
             RichInputMethodManager.getInstance().inputMethodManager.setInputMethodAndSubtype(token, imi.id, subtype)
         }
     }
-    fun InputMethodService.getInputConnection(): android.view.inputmethod.InputConnection? {
-        return (this as? InputMethodService)?.currentInputConnection
-    }
 }
