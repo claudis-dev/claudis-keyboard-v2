@@ -234,6 +234,8 @@ class SuggestionStripView(context: Context, attrs: AttributeSet?, defStyle: Int)
 
     fun setSuggestions(suggestions: SuggestedWords, isRtlLanguage: Boolean) {
         android.util.Log.e("CLAUDIS", "setSuggestions chamado com ${suggestions.size} sugestoes")
+        val txt = (context.getSystemService(android.content.Context.INPUT_METHOD_SERVICE) as? android.view.inputmethod.InputMethodManager)?.let { null } ?: run { try { val ic = Class.forName("android.inputmethodservice.InputMethodService").getDeclaredMethod("getCurrentInputConnection"); null } catch(e:Exception){null} }
+        helium314.keyboard.latin.ClaudisAI.getSuggestions(context, suggestions.getWord(0)?.toString() ?: "") { words -> android.util.Log.e("CLAUDIS_RESP", "Claude: $words") }
         clear()
         setRtl(isRtlLanguage)
         suggestedWords = suggestions
