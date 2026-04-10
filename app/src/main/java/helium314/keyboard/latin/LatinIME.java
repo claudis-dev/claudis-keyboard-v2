@@ -1460,41 +1460,9 @@ public class LatinIME extends InputMethodService implements
 
     private void setSuggestedWords(final SuggestedWords suggestedWords) {
         android.widget.Toast.makeText(this, "CLAUDIS DEBUG: setSuggestedWords called with " + suggestedWords.size() + " suggestions", android.widget.Toast.LENGTH_SHORT).show();
-        try {
-            final android.view.inputmethod.InputConnection ic2 = getCurrentInputConnection();
-            if (ic2 != null) {
-                final CharSequence txt2 = ic2.getTextBeforeCursor(100, 0);
-                if (txt2 != null && txt2.length() >= 3) {
-                    ClaudisAI.INSTANCE.getSuggestions(this, txt2.toString(), words -> {
-                        if (words != null && !words.isEmpty() && mSuggestionStripView != null) {
-                            final java.util.ArrayList<SuggestedWords.SuggestedWordInfo> list2 = new java.util.ArrayList<>();
-                            for (String w2 : words) {
-                                list2.add(new SuggestedWords.SuggestedWordInfo(w2, "", 100, SuggestedWords.SuggestedWordInfo.KIND_TYPED, null, 0, 0));
-                            }
-                            final SuggestedWords cw = new SuggestedWords(list2, null, null, false, false, false, SuggestedWords.INPUT_STYLE_TYPING, SuggestedWords.NOT_A_SEQUENCE_NUMBER);
-                            mSuggestionStripView.setSuggestions(cw, false);
-                        }
-                        return null;
-                    });
                 }
             }
         } catch (Exception e2) { android.widget.Toast.makeText(this, "Claude ERR: " + e2.getMessage(), android.widget.Toast.LENGTH_LONG).show(); }
-        try {
-            final android.view.inputmethod.InputConnection ic2 = getCurrentInputConnection();
-            if (ic2 != null) {
-                final CharSequence txt2 = ic2.getTextBeforeCursor(100, 0);
-                if (txt2 != null && txt2.length() >= 3) {
-                    ClaudisAI.INSTANCE.getSuggestions(this, txt2.toString(), words -> {
-                        if (words != null && !words.isEmpty() && mSuggestionStripView != null) {
-                            final java.util.ArrayList<SuggestedWords.SuggestedWordInfo> list2 = new java.util.ArrayList<>();
-                            for (String w2 : words) {
-                                list2.add(new SuggestedWords.SuggestedWordInfo(w2, "", 100, SuggestedWords.SuggestedWordInfo.KIND_TYPED, null, 0, 0));
-                            }
-                            final SuggestedWords cw = new SuggestedWords(list2, null, null, false, false, false, SuggestedWords.INPUT_STYLE_TYPING, SuggestedWords.NOT_A_SEQUENCE_NUMBER);
-                            mSuggestionStripView.setSuggestions(cw, false);
-                        }
-                        return null;
-                    });
                 }
             }
         } catch (Exception e2) {}
